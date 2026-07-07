@@ -30,8 +30,15 @@ if ($LASTEXITCODE -ne 0) {
 
 $RepoFullName = "$Owner/$RepoName"
 
-gh repo view $RepoFullName *> $null
-if ($LASTEXITCODE -ne 0) {
+$repoExists = $false
+try {
+  gh repo view $RepoFullName *> $null
+  $repoExists = $true
+} catch {
+  $repoExists = $false
+}
+
+if (-not $repoExists) {
   gh repo create $RepoName --public --source . --remote origin --push
 } else {
   git remote remove origin 2>$null
