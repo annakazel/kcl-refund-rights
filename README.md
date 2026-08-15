@@ -17,6 +17,6 @@ Static public website for the KCL refund consumer-law advocacy project.
 - Vercel: import the GitHub repository and deploy as a static site.
 - Lovable: use the Lovable project link and publish/share from their interface.
 
-## Legal note
+## Note
 
-This website is advocacy and general information. It is not legal advice.
+This website is student-led public advocacy explaining the refund legal basis in accessible language.

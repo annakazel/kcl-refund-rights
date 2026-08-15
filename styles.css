@@ -3,6 +3,7 @@
   --burgundy: #8f1d3d;
   --cream: #fbf6ed;
   --gold: #c99a3d;
+  --gold-soft: #f4d48a;
   --ink: #172033;
   --muted: #667085;
   --card: #ffffff;
@@ -38,15 +39,16 @@ a {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.8rem clamp(1rem, 4vw, 3rem);
-  background: rgba(251, 246, 237, 0.94);
+  background: rgba(251, 246, 237, 0.95);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(12px);
 }
 
 .brand {
   color: var(--navy);
-  font-weight: 800;
+  font-weight: 850;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 nav {
@@ -79,6 +81,7 @@ nav a {
 }
 
 .hero {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
   gap: 2rem;
@@ -104,7 +107,8 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(2.4rem, 5vw, 5rem);
+  font-size: clamp(2.7rem, 6vw, 6rem);
+  letter-spacing: -0.055em;
   margin: 0 0 1rem;
 }
 
@@ -119,7 +123,7 @@ h3 {
 
 .eyebrow {
   color: var(--burgundy);
-  font-weight: 800;
+  font-weight: 850;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.78rem;
@@ -127,6 +131,12 @@ h3 {
 
 .lead {
   font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 650;
+}
+
+.section-lead {
+  max-width: 860px;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
 }
 
 .button-row {
@@ -142,7 +152,7 @@ button {
   border: 0;
   border-radius: 999px;
   padding: 0.78rem 1.1rem;
-  font-weight: 800;
+  font-weight: 850;
   cursor: pointer;
   text-decoration: none;
 }
@@ -170,6 +180,7 @@ button {
 .quote-card,
 .template,
 .legal-list article,
+.legal-point,
 details {
   background: var(--card);
   border: 1px solid var(--line);
@@ -181,17 +192,22 @@ details {
 .three-grid,
 .six-grid,
 .four-grid,
-.template-grid {
+.template-grid,
+.legal-points,
+.source-grid {
   display: grid;
   gap: 1rem;
 }
 
-.three-grid {
+.three-grid,
+.cost-panel {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .six-grid,
-.template-grid {
+.template-grid,
+.legal-points,
+.source-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -216,9 +232,56 @@ details {
   font-weight: 900;
 }
 
-.legal-list {
+.strong-card {
+  border-top: 6px solid var(--burgundy);
+}
+
+.big-line {
+  color: var(--burgundy);
+  font-size: clamp(1.35rem, 2.8vw, 2rem);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.summary-line {
+  border-left: 5px solid var(--gold);
+  background: #fff8e8;
+  border-radius: 12px;
+  color: var(--navy);
+  font-weight: 800;
+  padding: 0.85rem 1rem;
+}
+
+.cost-panel {
   display: grid;
   gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.cost-panel > div {
+  background: var(--navy);
+  border-radius: 26px;
+  color: white;
+  padding: clamp(1.1rem, 3vw, 2rem);
+}
+
+.large-stat {
+  color: var(--gold-soft);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 950;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  margin: 0 0 0.85rem;
+}
+
+.warning-card {
+  background: linear-gradient(135deg, #102033 0%, #203854 100%);
+  color: white;
+}
+
+.warning-card h3,
+.warning-card p {
+  color: white;
 }
 
 .steps {
@@ -278,6 +341,10 @@ summary {
   margin: 0.5rem auto;
 }
 
+.footer a {
+  color: var(--gold-soft);
+}
+
 @media (max-width: 900px) {
   .site-header {
     align-items: flex-start;
@@ -290,11 +357,14 @@ summary {
   .six-grid,
   .four-grid,
   .template-grid,
+  .legal-points,
+  .source-grid,
+  .cost-panel,
   .checklist {
     grid-template-columns: 1fr;
   }
 
   h1 {
-    font-size: 2.35rem;
+    font-size: 2.65rem;
   }
 }
